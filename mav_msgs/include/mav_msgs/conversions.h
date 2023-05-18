@@ -365,6 +365,8 @@ inline void eigenTrajectoryPointFromMsg(
   trajectory_point->snap_W.setZero();
 }
 
+// Convert the first point of a MultiDOFJointTrajectory msg
+// to an eigenTrajectoryPoint
 inline void eigenTrajectoryPointFromTrajMsg(
     const trajectory_msgs::MultiDOFJointTrajectory& msg,
     EigenTrajectoryPoint* trajectory_point) {
