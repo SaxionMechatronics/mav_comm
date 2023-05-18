@@ -365,6 +365,27 @@ inline void eigenTrajectoryPointFromMsg(
   trajectory_point->snap_W.setZero();
 }
 
+inline void eigenTrajectoryPointFromTrajMsg(
+    const trajectory_msgs::MultiDOFJointTrajectory& msg,
+    EigenTrajectoryPoint* trajectory_point) {
+  assert(trajectory_point != NULL);
+
+  if (msg.points.empty()) {
+    ROS_ERROR("MultiDofJointTrajectory is empty.");
+    return;
+  }
+
+  if (msg.points.size() > 1) {
+    ROS_WARN(
+        "MultiDofJointTrajectory message should have one point, but has "
+        "%lu. Using first point.",
+        msg.points.size());
+  }
+
+  eigenTrajectoryPointFromMsg(msg.points[0], trajectory_point);
+  
+}
+
 inline void eigenTrajectoryPointVectorFromMsg(
     const trajectory_msgs::MultiDOFJointTrajectory& msg,
     EigenTrajectoryPointVector* trajectory) {
