@@ -7,9 +7,8 @@ find_package(geometry_msgs REQUIRED)
 find_package(trajectory_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(rcl_interfaces REQUIRED)
-include_directories(include)
 
-find_package(Eigen3)
+include_directories(include)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   
@@ -33,6 +32,6 @@ ament_package()
 
 install(
   DIRECTORY include/${PROJECT_NAME}/
-  DESTINATION include
-  FILES_MATCHING PATTERN "*.h"
+  DESTINATION include/${PROJECT_NAME}/
+  FILES_MATCHING PATTERN "*.h" 
 )
