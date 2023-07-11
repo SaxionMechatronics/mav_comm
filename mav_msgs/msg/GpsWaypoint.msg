@@ -1,3 +1,4 @@
+std_msgs/Header header
 
 float64 latitude     # latitude in degree
 float64 longitude    # longitude in degree
